@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{ url('backend/css/bootstrap.min.css') }}">
     <!-- https://getbootstrap.com/ -->
     <link rel="stylesheet" href="{{ url('backend/css/tooplate.css') }}">
+    @yield('links')
 </head>
 
 <body id="reportsPage">
@@ -34,7 +35,7 @@
             </div>
             <!-- row -->
             <div class="row tm-content-row tm-mt-big">
-               @yield('content')
+                @yield('content')
             </div>
             @include('backend.fixed.footer')
         </div>
@@ -79,6 +80,7 @@
             });
         })
     </script>
+    @yield('scripts')
 </body>
 
 </html>
