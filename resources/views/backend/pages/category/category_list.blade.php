@@ -28,10 +28,12 @@
                             <td class="tm-product-name">{{ $category->category_en }}</td>
                             <td class="tm-product-name">{{ $category->category_bn }}</td>
                             <td>
-                               <a href=""><i class="fas fa-edit tm-trash-icon"></i></a>
-                                <a href=""><i class="fas fa-trash-alt tm-trash-icon mx-4"></i></a>
+                                <a href="{{ route('category.edit', $category->id) }}"><i
+                                        class="fas fa-edit tm-trash-icon"></i></a>
+                                <a href="{{ route('category.delete', $category->id) }}"><i
+                                        class="fas fa-trash-alt tm-trash-icon mx-4"></i></a>
                             </td>
-                        </tr>
+                            </tr>
                         @endforeach
                         <tr>
                     </tbody>
@@ -60,13 +62,4 @@
             </div>
         </div>
     </div>
-@endsection
-@section('scripts')
-    <script>
-        $(function() {
-            $('.tm-product-name').on('click', function() {
-                window.location.href = "edit-product.html";
-            });
-        })
-    </script>
 @endsection

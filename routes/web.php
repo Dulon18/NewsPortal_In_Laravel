@@ -18,8 +18,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::get('/admin',[AdminController::class,'index'])->name('admin');
+//category route sart here---------------------------------------------------------------------------------->
+
 Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('admin.dashboard');
 Route::get('/category/list',[CategoryController::class,'category_list'])->name('category.list');
 Route::get('/category/create',[CategoryController::class,'create_category'])->name('category.create');
 Route::post('/category/store',[CategoryController::class,'store_category'])->name('category.store');
+Route::get('/category/edit/{id}',[CategoryController::class,'edit_category'])->name('category.edit');
+Route::put('/category/update/{id}',[CategoryController::class,'update_category'])->name('category.update');
+Route::get('/category/delete/{id}',[CategoryController::class,'delete_category'])->name('category.delete');
+
+//category route end here-------------------------------------------------------------------------------------->
