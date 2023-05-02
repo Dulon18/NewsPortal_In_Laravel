@@ -5,7 +5,6 @@
             <div class="row">
                 <div class="col-md-8 col-sm-12">
                     <h2 class="tm-block-title d-inline-block">Category</h2>
-
                 </div>
                 <div class="col-md-4 col-sm-12 text-right">
                     <a href="{{ route('category.create') }}" class="btn btn-small btn-primary">Add New Category</a>
@@ -28,7 +27,10 @@
                             </th>
                             <td class="tm-product-name">{{ $category->category_en }}</td>
                             <td class="tm-product-name">{{ $category->category_bn }}</td>
-                            <td><i class="fas fa-trash-alt tm-trash-icon"></i></td>
+                            <td>
+                               <a href=""><i class="fas fa-edit tm-trash-icon"></i></a>
+                                <a href=""><i class="fas fa-trash-alt tm-trash-icon mx-4"></i></a>
+                            </td>
                         </tr>
                         @endforeach
                         <tr>

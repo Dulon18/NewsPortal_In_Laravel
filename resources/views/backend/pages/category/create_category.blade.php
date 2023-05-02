@@ -4,7 +4,7 @@
         <div class="bg-white tm-block">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="tm-block-title d-inline-block">Add Product</h2>
+                    <h2 class="tm-block-title d-inline-block">Add Category</h2>
                 </div>
             </div>
             <div class="row mt-4 tm-edit-product-row">
