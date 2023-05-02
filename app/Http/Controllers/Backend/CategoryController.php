@@ -21,15 +21,19 @@ class CategoryController extends Controller
     public function store_category(Request $request)
     {
         $request->validate([
-            'category_en'=>'required',
-            'category_bn'=>'required',
+            'category_en'=>'required|unique:categories|max:255',
+            'category_bn'=> 'required|unique:categories|max:255',
 
+        ],[
+            'category_en.required'=>' Category English Name is required',
+            'category_bn.required'=>' Category Bangla Name is required',
+            'unique'=>' Category Name is already taken'
         ]);
         Category::create([
             'category_en'=>$request->category_en,
             'category_bn'=>$request->category_bn,
         ]);
 
-        return redirect()->route('category.list');
+        return redirect()->route('category.list')->with('success','Added Successfully..');
     }
 }

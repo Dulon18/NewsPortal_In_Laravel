@@ -22,4 +22,4 @@ Route::get('/', function () {
 Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('admin.dashboard');
 Route::get('/category/list',[CategoryController::class,'category_list'])->name('category.list');
 Route::get('/category/create',[CategoryController::class,'create_category'])->name('category.create');
-Route::get('/category/store',[CategoryController::class,'store_category'])->name('category.store');
+Route::post('/category/store',[CategoryController::class,'store_category'])->name('category.store');
