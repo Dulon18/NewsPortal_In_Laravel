@@ -11,7 +11,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto">
             <li class="nav-item">
-                <a class="nav-link active" href="#">Dashboard
+                <a class="nav-link active" href="{{ route('admin.dashboard') }}">Dashboard
                     <span class="sr-only">(current)</span>
                 </a>
             </li>
@@ -22,11 +22,11 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ route('category.list') }}">Category</a>
-                    <a class="dropdown-item" href="#">Sub Category</a>
+                    <a class="dropdown-item" href="{{ route('subcategory.list') }}">Sub Category</a>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="products.html">Products</a>
+                <a class="nav-link" href="products.html">Posts</a>
             </li>
 
             <li class="nav-item">
