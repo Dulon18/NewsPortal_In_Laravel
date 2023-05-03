@@ -41,8 +41,28 @@ class SubCategoryController extends Controller
             'subcategory_bn' => $request->subcategory_bn,
             'category_id' => $request->category_id,
         ]);
-
-
         return redirect()->route('subcategory.list')->with('success', 'Added Successfully..');
+    }
+    public function edit_subcategory($id)
+    {
+        $subcategory = SubCategory::find($id);
+        $categories = DB::table('categories')->get();
+        return view('backend.pages.subcategory.edit_subcategory', compact('subcategory', 'categories'));
+    }
+    public function update_subcategory(Request $request, $id){
+        $request->validate(
+            [
+                'subcategory_en' => 'required|max:255',
+                'subcategory_bn' => 'required|max:255',
+            ],
+        );
+        $sub= SubCategory::find($id);
+        $sub->update([
+            'subcategory_en' => $request->subcategory_en,
+            'subcategory_bn' => $request->subcategory_bn,
+            'category_id' => $request->category_id,
+        ]);
+        return redirect()->route('subcategory.list')->with('success', 'Update Successfully..');
+
     }
 }
