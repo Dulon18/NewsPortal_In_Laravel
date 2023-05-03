@@ -30,9 +30,9 @@
                             <td class="tm-product-name">{{ $category->subcategory_bn }}</td>
                             <td class="tm-product-name">{{ $category->category_en }} | {{ $category->category_bn }}</td>
                             <td>
-                                <a href="{{ route('category.edit', $category->id) }}"><i
+                                <a href="{{ route('subcategory.edit', $category->id) }}"><i
                                         class="fas fa-edit tm-trash-icon"></i></a>
-                                <a href="{{ route('category.delete', $category->id) }}"><i
+                                <a href="{{ route('subcategory.delete', $category->id) }}"><i
                                         class="fas fa-trash-alt tm-trash-icon mx-4"></i></a>
                             </td>
                             </tr>

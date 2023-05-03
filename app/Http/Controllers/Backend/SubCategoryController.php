@@ -23,18 +23,19 @@ class SubCategoryController extends Controller
     }
     public function store_subcategory(Request $request)
     {
-        //dd($request);
-        // $request->validate([
-        //     'subcategory_en' => 'required|unique:subcategories|max:255',
-        //     'subcategory_bn' => 'required|unique:subcategories|max:255',
-        //     'category' => 'required',
 
-        // ], [
-        //     'subcategory_en.required' => ' SubCategory English Name is required',
-        //     'subcategory_bn.required' => ' SubCategory Bangla Name is required',
-        //     'category.required' => 'Choose one option',
-        //     'unique' => ' Sub Category Name is already taken'
-        // ]);
+        $request->validate([
+            'subcategory_en' => 'required|unique:sub_categories|max:255',
+            'subcategory_bn' => 'required|unique:sub_categories|max:255',
+            'category' => 'required',
+
+        ],
+        [
+            'subcategory_en.required' => ' SubCategory English Name is required',
+            'subcategory_bn.required' => ' SubCategory Bangla Name is required',
+            'category.required' => 'Choose one option',
+            'unique' => ' Sub Category Name is already taken'
+        ]);
         SubCategory::create([
             'subcategory_en' => $request->subcategory_en,
             'subcategory_bn' => $request->subcategory_bn,
