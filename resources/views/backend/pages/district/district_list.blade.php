@@ -7,10 +7,10 @@
         <div class="bg-white tm-block h-100">
             <div class="row">
                 <div class="col-md-8 col-sm-12">
-                    <h2 class="tm-block-title d-inline-block">Category</h2>
+                    <h2 class="tm-block-title d-inline-block">District List</h2>
                 </div>
                 <div class="col-md-4 col-sm-12 text-right">
-                    <a href="{{ route('category.create') }}" class="btn btn-small btn-primary">Add New Category</a>
+                    <a href="{{ route('district.create') }}" class="btn btn-small btn-primary">Add New District</a>
                 </div>
             </div>
             <div class="table-responsive">
@@ -18,22 +18,22 @@
                     <thead>
                         <tr class="tm-bg-gray">
                             <th scope="col">&nbsp;</th>
-                            <th scope="col">Category English Name</th>
-                            <th scope="col">Category Bangla Name</th>
+                            <th scope="col">District English Name</th>
+                            <th scope="col">District Bangla Name</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($categories as $category)
+                        @foreach ($districts as $row)
                             <th scope="row">
                                 <input type="checkbox" aria-label="Checkbox">
                             </th>
-                            <td class="tm-product-name">{{ $category->category_en }}</td>
-                            <td class="tm-product-name">{{ $category->category_bn }}</td>
+                            <td class="tm-product-name">{{ $row->district_en }}</td>
+                            <td class="tm-product-name">{{ $row->district_bn }}</td>
                             <td>
-                                <a href="{{ route('category.edit', $category->id) }}"><i
+                                <a href="{{ route('district.edit', $row->id) }}"><i
                                         class="fas fa-edit tm-trash-icon"></i></a>
-                                <a href="{{ route('category.delete', $category->id) }}"><i
+                                <a href="{{ route('district.delete', $row->id) }}"><i
                                         class="fas fa-trash-alt tm-trash-icon mx-4"></i></a>
                             </td>
                             </tr>
