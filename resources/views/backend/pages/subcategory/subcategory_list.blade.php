@@ -1,6 +1,9 @@
 @extends('backend.layouts.app')
 @section('content')
     <div class="col-xl-12 col-lg-12 tm-md-12 tm-sm-12 tm-col">
+        @if (session()->has('success'))
+            <p class="alert alert-success">{{ session()->get('success') }}</p>
+        @endif
         <div class="bg-white tm-block h-100">
             <div class="row">
                 <div class="col-md-8 col-sm-12">

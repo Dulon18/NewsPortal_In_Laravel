@@ -27,13 +27,12 @@ class SubCategoryController extends Controller
         $request->validate([
             'subcategory_en' => 'required|unique:sub_categories|max:255',
             'subcategory_bn' => 'required|unique:sub_categories|max:255',
-            'category' => 'required',
+
 
         ],
         [
             'subcategory_en.required' => ' SubCategory English Name is required',
             'subcategory_bn.required' => ' SubCategory Bangla Name is required',
-            'category.required' => 'Choose one option',
             'unique' => ' Sub Category Name is already taken'
         ]);
         SubCategory::create([
@@ -64,5 +63,10 @@ class SubCategoryController extends Controller
         ]);
         return redirect()->route('subcategory.list')->with('success', 'Update Successfully..');
 
+    }
+    public function delete_subcategory($id)
+    {
+        SubCategory::find($id)->delete();
+        return redirect()->route('subcategory.list')->with('success', 'Delete Successfully..');
     }
 }
