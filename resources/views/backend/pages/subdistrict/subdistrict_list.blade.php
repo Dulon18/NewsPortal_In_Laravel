@@ -7,10 +7,10 @@
         <div class="bg-white tm-block h-100">
             <div class="row">
                 <div class="col-md-8 col-sm-12">
-                    <h2 class="tm-block-title d-inline-block"> Sub Category</h2>
+                    <h2 class="tm-block-title d-inline-block">Sub Districts List</h2>
                 </div>
                 <div class="col-md-4 col-sm-12 text-right">
-                    <a href="{{ route('subcategory.create') }}" class="btn btn-small btn-primary">Add New SubCategory</a>
+                    <a href="{{ route('subdistrict.create') }}" class="btn btn-small btn-primary">Add New SubDistrict</a>
                 </div>
             </div>
             <div class="table-responsive">
@@ -18,24 +18,24 @@
                     <thead>
                         <tr class="tm-bg-gray">
                             <th scope="col">&nbsp;</th>
-                            <th scope="col">SubCategory English Name</th>
-                            <th scope="col">SubCategory Bangla Name</th>
-                            <th scope="col">Category</th>
+                            <th scope="col">Sub District English Name</th>
+                            <th scope="col">Sub District Bangla Name</th>
+                            <th scope="col">District</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($subcategories as $category)
+                        @foreach ($subdistricts as $row)
                             <th scope="row">
                                 <input type="checkbox" aria-label="Checkbox">
                             </th>
-                            <td class="tm-product-name">{{ $category->subcategory_en }}</td>
-                            <td class="tm-product-name">{{ $category->subcategory_bn }}</td>
-                            <td class="tm-product-name">{{ $category->category_en }} | {{ $category->category_bn }}</td>
+                            <td class="tm-product-name">{{ $row->subdistrict_en }}</td>
+                            <td class="tm-product-name">{{ $row->subdistrict_bn }}</td>
+                            <td class="tm-product-name">{{ $row->district_en }} | {{ $row->district_bn }}</td>
                             <td>
-                                <a href="{{ route('subcategory.edit', $category->id) }}"><i
+                                <a href="{{ route('subdistrict.edit', $row->id) }}"><i
                                         class="fas fa-edit tm-trash-icon"></i></a>
-                                <a href="{{ route('subcategory.delete', $category->id) }}"><i
+                                <a href="{{ route('subdistrict.delete', $row->id) }}"><i
                                         class="fas fa-trash-alt tm-trash-icon mx-4"></i></a>
                             </td>
                             </tr>

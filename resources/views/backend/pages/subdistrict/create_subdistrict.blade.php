@@ -4,52 +4,52 @@
         <div class="bg-white tm-block">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="tm-block-title d-inline-block">Add SubCategory</h2>
+                    <h2 class="tm-block-title d-inline-block">Add Sub District</h2>
                 </div>
             </div>
             <div class="row mt-4 tm-edit-product-row">
                 <div class="col-xl-7 col-lg-7 col-md-12">
-                    <form action="{{ route('subcategory.store') }}" method="POST" class="tm-edit-product-form">
+                    <form action="{{ route('subdistrict.store') }}" method="POST" class="tm-edit-product-form">
                         @csrf
                         <div class="input-group mb-3">
-                            <label for="name" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">SubCategory
+                            <label for="name" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Sub District
                                 English Name
                             </label>
-                            <input id="name" name="subcategory_en" type="text"
-                                class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7 @error('subcategory_en') is-invalid @enderror">
-                            @error('subcategory_en')
+                            <input id="name" name="subdistrict_en" type="text"
+                                class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7 @error('subdistrict_en') is-invalid @enderror">
+                            @error('subdistrict_en')
                                 <span class="invalid-feedback" role="alert">
                                     {{ $message }}
                                 </span>
                             @enderror
                         </div>
                         <div class="input-group mb-3">
-                            <label for="stock" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">SubCategory
+                            <label for="stock" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Sub District
                                 Bangla
                                 Name
                             </label>
-                            <input id="stock" name="subcategory_bn" type="text"
-                                class="form-control validate col-xl-12 col-lg-12 col-md-7 col-sm-7 @error('subcategory_bn') is-invalid @enderror"><br>
-                            @error('subcategory_bn')
+                            <input id="stock" name="subdistrict_bn" type="text"
+                                class="form-control validate col-xl-12 col-lg-12 col-md-7 col-sm-7 @error('subdistrict_bn') is-invalid @enderror">
+                            @error('subdistrict_bn')
                                 <span class="invalid-feedback" role="alert">
                                     {{ $message }}
                                 </span>
                             @enderror
                         </div>
                         <div class="input-group mb-3">
-                            <label for="stock" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Category
+                            <label for="stock" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">District
                             </label>
-                            <select name="category_id"
+                            <select name="district_id"
                                 class="custom-select col-xl-9 col-lg-8 col-md-8 col-sm-7
-                            @error('category') is-invalid @enderror"
+                            @error('district') is-invalid @enderror"
                                 id="category">
                                 <option disabled selected>Select One</option>
-                                @foreach ($categories as $c)
-                                    <option value="{{ $c->id }}">{{ $c->category_en }} | {{ $c->category_bn }}
+                                @foreach ($districts as $row)
+                                    <option value="{{ $row->id }}">{{ $row->district_en }} | {{ $row->district_bn }}
                                     </option>
                                 @endforeach
                             </select>
-                            @error('category')
+                            @error('district')
                                 <span class="invalid-feedback" role="alert">
                                     {{ $message }}
                                 </span>
@@ -60,7 +60,7 @@
                             <div class="ml-auto col-xl-8 col-lg-8 col-md-8 col-sm-7 pl-0">
                                 <button type="submit" class="btn btn-primary">Add
                                 </button>
-                                <a href="{{ route('subcategory.list') }}" type="button" class="btn btn-dark">Back
+                                <a href="{{ route('subdistrict.list') }}" type="button" class="btn btn-dark">Back
                                 </a>
                             </div>
                         </div>
