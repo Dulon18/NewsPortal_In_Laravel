@@ -43,15 +43,17 @@ class SubDistrictController extends Controller
     public function edit_subdistrict($id)
     {
         $subdistrict = SubDistrict::find($id);
-        return view('backend.pages.subdistrict.edit_subdistrict', compact('subdistrict'));
+        $districts = DB::table('districts')->get();
+        return view('backend.pages.subdistrict.edit_subdistrict', compact('subdistrict','districts'));
     }
     public function update_subdistrict(Request $request, $id)
     {
 
         $district = SubDistrict::find($id);
         $district->update([
-            'subdistrict_en' => $request->district_en,
-            'subdistrict_bn' => $request->district_bn,
+            'subdistrict_en' => $request->subdistrict_en,
+            'subdistrict_bn' => $request->subdistrict_bn,
+            'district_id' => $request->district_id,
         ]);
         return redirect()->route('subdistrict.list')->with('success', 'Update Successfully..');
     }
