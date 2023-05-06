@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\DistrictController;
 use App\Http\Controllers\Backend\SubDistrictController;
 use App\Http\Controllers\Backend\SubCategoryController;
@@ -62,3 +63,8 @@ Route::put('/subdistrict/update/{id}',[SubDistrictController::class,'update_subd
 Route::get('/subdistrict/delete/{id}',[SubDistrictController::class,'delete_subdistrict'])->name('subdistrict.delete');
 
 //Subcategory route end here------------------------------------------------------------------------------------------->
+
+//post route satrt
+Route::get('/post/list', [PostController::class, 'post_list'])->name('post.list');
+Route::get('/post/create', [PostController::class, 'post_create'])->name('post.create');
+//post route end

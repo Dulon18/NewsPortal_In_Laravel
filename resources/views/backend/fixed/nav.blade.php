@@ -36,7 +36,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="products.html">Posts</a>
+                <a class="nav-link" href="{{ route('post.list') }}">Posts</a>
             </li>
 
             <li class="nav-item">
