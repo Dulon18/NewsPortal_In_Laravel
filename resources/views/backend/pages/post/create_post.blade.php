@@ -26,7 +26,7 @@
                             <input id="stock" name="category_bn" type="text"
                                 class="form-control validate col-xl-12 col-lg-12 col-md-7 col-sm-7"><br>
                         </div>
-                         <div class="input-group mb-3">
+                        <div class="input-group mb-3">
                             <label for="stock" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Category
                             </label>
                             <select name="category_id"
@@ -54,7 +54,8 @@
                                 id="category">
                                 <option disabled selected>Select One</option>
                                 @foreach ($subcategories as $row)
-                                    <option value="{{ $row->id }}">{{ $row->subcategory_en }} | {{ $row->subcategory_bn }}
+                                    <option value="{{ $row->id }}">{{ $row->subcategory_en }} |
+                                        {{ $row->subcategory_bn }}
                                     </option>
                                 @endforeach
                             </select>
@@ -92,7 +93,8 @@
                                 id="category">
                                 <option disabled selected>Select One</option>
                                 @foreach ($subdistricts as $row)
-                                    <option value="{{ $row->id }}">{{ $row->subdistrict_en }} | {{ $row->subdistrict_bn }}
+                                    <option value="{{ $row->id }}">{{ $row->subdistrict_en }} |
+                                        {{ $row->subdistrict_bn }}
                                     </option>
                                 @endforeach
                             </select>
@@ -115,7 +117,25 @@
                                 Name
                             </label>
                             <input id="stock" name="category_bn" type="text"
-                                class="form-control validate col-xl-12 col-lg-12 col-md-7 col-sm-7"><br>
+                                class="form-control validate col-xl-12 col-lg-12 col-md-7 col-sm-7">
+                        </div>
+                        <div class="input-group mb-3">
+                            <label for="stock" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">HeadLine
+                            </label>
+                            <input id="stock" name="category_bn" type="text"
+                                class="form-control validate col-xl-12 col-lg-12 col-md-7 col-sm-7">
+                        </div>
+                        <div class="input-group mb-3">
+                            <label for="stock" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">English Details
+                            </label>
+                            <input id="stock" name="category_bn" type="text"
+                                class="form-control validate col-xl-12 col-lg-12 col-md-7 col-sm-7">
+                        </div>
+                        <div class="input-group mb-3">
+                            <label for="stock" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Bangla Details
+                            </label>
+                            <input id="stock" name="category_bn" type="text"
+                                class="form-control validate col-xl-12 col-lg-12 col-md-7 col-sm-7">
                         </div>
 
                         <div class="input-group mb-3">
