@@ -23,6 +23,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+Route::get('/admin', [AdminController::class, 'main'])->name('admin');
 
 //category route start here---------------------------------------------------------------------------------->
 Route::get('/category/list',[CategoryController::class,'category_list'])->name('category.list');

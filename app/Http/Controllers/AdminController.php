@@ -14,4 +14,8 @@ class AdminController extends Controller
     {
         return view('backend.layouts.dashboard');
     }
+    public function main()
+    {
+        return view('backend.layouts.main');
+    }
 }
