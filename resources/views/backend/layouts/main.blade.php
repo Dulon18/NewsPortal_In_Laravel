@@ -47,7 +47,7 @@
                     @yield('content')
                 </section>
             </div>
-@include('backend.fixed.footer')
+            @include('backend.fixed.footer')
         </div>
     </div>
 

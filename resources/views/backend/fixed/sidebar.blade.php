@@ -1,7 +1,7 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="index-2.html">News Portal</a>
+            <a href="#">News Portal</a>
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header ">Dashboard</li>
@@ -22,14 +22,12 @@
                     </li>
                 </ul>
             </li>
-
             <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-th mx-3"></i>
                     <span>Districts</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link mx-3" href="{{ route('district.list') }}">District</a></li>
                     <li><a class="nav-link mx-3" href="{{ route('subdistrict.list') }}">Sub District</a></li>
-
                 </ul>
             </li>
             <li class="dropdown">
