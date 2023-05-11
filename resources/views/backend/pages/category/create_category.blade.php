@@ -1,7 +1,7 @@
 @extends('backend.layouts.main')
 @section('content')
     <div class="section-header">
-        <h1>Category</h1>
+        <h1> Add Category</h1>
     </div>
     <div class="card">
         <form action="{{ route('category.store') }}" method="POST" class="tm-edit-product-form">
@@ -31,6 +31,7 @@
                 </div>
             </div>
             <div class="card-footer text-right">
+                <a href="{{ route('category.list') }}" class="btn btn-warning">Back</a>
                 <button class="btn btn-primary">Submit</button>
             </div>
         </form>

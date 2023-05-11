@@ -30,9 +30,9 @@
 
 <body class="layout-4">
     <!-- Page Loader -->
-    <div class="page-loader-wrapper">
+    {{-- <div class="page-loader-wrapper">
         <span class="loader"><span class="loader-inner"></span></span>
-    </div>
+    </div> --}}
 
     <div id="app">
         <div class="main-wrapper main-wrapper-1">
