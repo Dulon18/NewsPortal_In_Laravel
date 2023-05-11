@@ -4,8 +4,8 @@
             <a href="index-2.html">News Portal</a>
         </div>
         <ul class="sidebar-menu">
-            <li class="menu-header">Dashboard</li>
-            <li class="dropdown active">
+            <li class="menu-header ">Dashboard</li>
+            <li class="dropdown {{ Request::routeIs('admin.dashboard') ? 'active' : '' }}">
                 <a href="{{ route('admin.dashboard') }}" class="nav-link"><i
                         class="fas fa-fire mx-3"></i><span>Dashboard</span></a>
             </li>
@@ -14,9 +14,12 @@
                         class="fas fa-columns mx-3"></i>
                     <span>Categories</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link mx-3" href="{{ route('category.list') }}">Category</a></li>
-
-                    <li><a class="nav-link mx-3" href="{{ route('subcategory.list') }}">Sub Category</a></li>
+                    <li class="{{ Request::routeIs('category.list') ? 'active' : '' }}">
+                        <a class="nav-link mx-3" href="{{ route('category.list') }}">Category</a>
+                    </li>
+                    <li class="{{ Request::routeIs('subcategory.list') ? 'active' : '' }}">
+                        <a class="nav-link mx-3" href="{{ route('subcategory.list') }}">Sub Category</a>
+                    </li>
                 </ul>
             </li>
 

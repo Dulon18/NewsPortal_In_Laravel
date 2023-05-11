@@ -4,6 +4,9 @@
         <div class="section-header">
             <h1>Category List</h1>
         </div>
+        @if (session()->has('success'))
+            <p class="alert alert-success">{{ session()->get('success') }}</p>
+        @endif
         <div class="card">
             <div class="card-header">
                 <a href="{{ route('category.create') }}" class="btn btn-small btn-primary">Add New Category</a>
@@ -27,7 +30,6 @@
                                         <a href="{{ route('category.delete', $category->id) }}"><i
                                                 class="fas fa-trash-alt tm-trash-icon mx-4"></i></a>
                                     </td>
-
                                 </tr>
                             @endforeach
                         </tbody>
