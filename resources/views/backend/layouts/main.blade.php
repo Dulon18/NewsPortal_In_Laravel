@@ -37,129 +37,17 @@
     <div id="app">
         <div class="main-wrapper main-wrapper-1">
             <div class="navbar-bg"></div>
-
             <!-- Start app top navbar -->
-            <nav class="navbar navbar-expand-lg main-navbar">
-                <form class="form-inline mr-auto">
-                    <ul class="navbar-nav mr-3">
-                        <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i
-                                    class="fas fa-bars"></i></a></li>
-                        <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i
-                                    class="fas fa-search"></i></a></li>
-                    </ul>
-                    <div class="search-element">
-                        <input class="form-control" type="search" placeholder="Search" aria-label="Search"
-                            data-width="250">
-                        <button class="btn" type="submit"><i class="fas fa-search"></i></button>
-                        <div class="search-backdrop"></div>
-
-                    </div>
-                </form>
-                <ul class="navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" data-toggle="dropdown"
-                            class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                            <img alt="image" src="assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
-                            <div class="d-sm-none d-lg-inline-block">Hi, Michelle Green</div>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a href="features-profile.html" class="dropdown-item has-icon"><i
-                                    class="fas fa-user-alt"></i> Profile</a>
-                            <a href="features-activities.html" class="dropdown-item has-icon"><i class="fa fa-bolt"></i>
-                                Activities</a>
-                            <a href="features-settings.html" class="dropdown-item has-icon"><i class="fas fa-cog"></i>
-                                Settings</a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item has-icon text-danger"><i
-                                    class="fas fa-sign-out-alt"></i> Logout</a>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-
+            @include('backend.fixed.nav')
             <!-- Start main left sidebar menu -->
             @include('backend.fixed.sidebar')
-
             <!-- Start app main Content -->
             <div class="main-content">
                 <section class="section">
-                    <div class="section-header">
-                        <h1>Dashboard</h1>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                            <div class="card card-statistic-1">
-                                <div class="card-icon bg-primary">
-                                    <i class="fas fa-user-alt"></i>
-                                </div>
-                                <div class="card-wrap">
-                                    <div class="card-header">
-                                        <h4>Total Admin</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        10
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                            <div class="card card-statistic-1">
-                                <div class="card-icon bg-danger">
-                                    <i class="far fa-newspaper"></i>
-                                </div>
-                                <div class="card-wrap">
-                                    <div class="card-header">
-                                        <h4>News</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        42
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                            <div class="card card-statistic-1">
-                                <div class="card-icon bg-warning">
-                                    <i class="far fa-file"></i>
-                                </div>
-                                <div class="card-wrap">
-                                    <div class="card-header">
-                                        <h4>Reports</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        1,201
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                            <div class="card card-statistic-1">
-                                <div class="card-icon bg-success">
-                                    <i class="fas fa-circle"></i>
-                                </div>
-                                <div class="card-wrap">
-                                    <div class="card-header">
-                                        <h4>Online Users</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        47
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @yield('content')
                 </section>
             </div>
-
-            <!-- Start app Footer part -->
-            <footer class="main-footer">
-                <div class="footer-left">
-                    <div class="bullet"></div> <a href="templateshub.net">Templates Hub</a>
-                </div>
-                <div class="footer-right">
-
-                </div>
-            </footer>
+@include('backend.fixed.footer')
         </div>
     </div>
 
