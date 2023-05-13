@@ -28,8 +28,8 @@ class SubDistrictController extends Controller
             'subdistrict_bn' => 'required|unique:sub_districts|max:255',
 
         ], [
-            'subdistrict_en.required' => ' District English Name is required',
-            'subdistrict_bn.required' => ' District Bangla Name is required',
+            'subdistrict_en.required' => ' Sub District English Name is required',
+            'subdistrict_bn.required' => ' Sub District Bangla Name is required',
             'unique' => ' District Name is already taken'
         ]);
         SubDistrict::create([

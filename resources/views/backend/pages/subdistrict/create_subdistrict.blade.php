@@ -1,72 +1,56 @@
-@extends('backend.layouts.app')
+@extends('backend.layouts.main')
 @section('content')
-    <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12">
-        <div class="bg-white tm-block">
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="tm-block-title d-inline-block">Add Sub District</h2>
+    <div class="section-header">
+        <h1> Add Sub District</h1>
+    </div>
+    <div class="card">
+        <form action="{{ route('subdistrict.store') }}" method="POST" class="tm-edit-product-form">
+            @csrf
+            <div class="card-header">
+                <h4>Sub District Info</h4>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label> Sub District English Name</label>
+                    <input name="subdistrict_en" type="text"
+                        class="form-control  @error('subdistrict_en') is-invalid @enderror">
+                    @error('subdistrict_en')
+                        <span class="invalid-feedback" role="alert">
+                            {{ $message }}
+                        </span>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label>Sub District Bangla Name</label>
+                    <input name="subdistrict_bn" type="text"
+                        class="form-control @error('subdistrict_bn') is-invalid @enderror">
+                    @error('subdistrict_bn')
+                        <span class="invalid-feedback" role="alert">
+                            {{ $message }}
+                        </span>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label>District</label>
+                    <select name="district_id" class="form-control select2 @error('category') is-invalid @enderror"
+                        tabindex="-1">
+                        <option disabled selected>Select One</option>
+                        @foreach ($districts as $row)
+                            <option value="{{ $row->id }}">{{ $row->district_en }} | {{ $row->district_bn }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('category')
+                        <span class="invalid-feedback" role="alert">
+                            {{ $message }}
+                        </span>
+                    @enderror
                 </div>
             </div>
-            <div class="row mt-4 tm-edit-product-row">
-                <div class="col-xl-7 col-lg-7 col-md-12">
-                    <form action="{{ route('subdistrict.store') }}" method="POST" class="tm-edit-product-form">
-                        @csrf
-                        <div class="input-group mb-3">
-                            <label for="name" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Sub District
-                                English Name
-                            </label>
-                            <input id="name" name="subdistrict_en" type="text"
-                                class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7 @error('subdistrict_en') is-invalid @enderror">
-                            @error('subdistrict_en')
-                                <span class="invalid-feedback" role="alert">
-                                    {{ $message }}
-                                </span>
-                            @enderror
-                        </div>
-                        <div class="input-group mb-3">
-                            <label for="stock" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Sub District
-                                Bangla
-                                Name
-                            </label>
-                            <input id="stock" name="subdistrict_bn" type="text"
-                                class="form-control validate col-xl-12 col-lg-12 col-md-7 col-sm-7 @error('subdistrict_bn') is-invalid @enderror">
-                            @error('subdistrict_bn')
-                                <span class="invalid-feedback" role="alert">
-                                    {{ $message }}
-                                </span>
-                            @enderror
-                        </div>
-                        <div class="input-group mb-3">
-                            <label for="stock" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">District
-                            </label>
-                            <select name="district_id"
-                                class="custom-select col-xl-9 col-lg-8 col-md-8 col-sm-7
-                            @error('district') is-invalid @enderror"
-                                id="category">
-                                <option disabled selected>Select One</option>
-                                @foreach ($districts as $row)
-                                    <option value="{{ $row->id }}">{{ $row->district_en }} | {{ $row->district_bn }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('district')
-                                <span class="invalid-feedback" role="alert">
-                                    {{ $message }}
-                                </span>
-                            @enderror
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <div class="ml-auto col-xl-8 col-lg-8 col-md-8 col-sm-7 pl-0">
-                                <button type="submit" class="btn btn-primary">Add
-                                </button>
-                                <a href="{{ route('subdistrict.list') }}" type="button" class="btn btn-dark">Back
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+            <div class="card-footer text-right">
+                <a href="{{ route('subdistrict.list') }}" type="button" class="btn btn-dark">Back</a>
+                <button class="btn btn-primary">Submit</button>
             </div>
-        </div>
+        </form>
     </div>
 @endsection
