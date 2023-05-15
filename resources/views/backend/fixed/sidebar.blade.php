@@ -34,7 +34,7 @@
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large mx-3"></i>
                     <span>Post</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link mx-3" href="components-article.html">Add Post</a></li>
+                    <li><a class="nav-link mx-3" href="{{ route('post.create') }}">Add Post</a></li>
                     <li><a class="nav-link mx-3 beep beep-sidebar" href="{{ route('post.list') }}">Post List</a></li>
                 </ul>
             </li>
