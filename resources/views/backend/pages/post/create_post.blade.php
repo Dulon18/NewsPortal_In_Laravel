@@ -1,11 +1,4 @@
 @extends('backend.layouts.main')
-@section('links')
-    <style>
-        .custom-file-input {
-            width: 50%;
-        }
-    </style>
-@endsection
 @section('content')
     <div class="row">
         <div class="col-12">
@@ -25,12 +18,6 @@
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title Bangla Name</label>
                             <div class="col-sm-12 col-md-7">
                                 <input type="text" name="title_bn" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group row mb-4">
-                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">HeadLine</label>
-                            <div class="col-sm-12 col-md-7">
-                                <input type="text" name="headline" class="form-control">
                             </div>
                         </div>
                         <div class="form-group row mb-4">
@@ -125,8 +112,27 @@
                             </div>
                         </div>
                         <div class="form-group row mb-4">
+                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Extra option</label>
+                            <div class="form-check form-check-inline ">
+                                <input class="form-check-input" name="headline" type="checkbox" id="inlineCheckbox1" value="1">
+                                <label class="form-check-label" for="inlineCheckbox1">Headline</label>
+                            </div>
+                            <div class="form-check form-check-inline ">
+                                <input class="form-check-input" name="bigthumnail" type="checkbox" id="inlineCheckbox1" value="2">
+                                <label class="form-check-label" for="inlineCheckbox1">General Big Thumbnail</label>
+                            </div>
+                            <div class="form-check form-check-inline ">
+                                <input class="form-check-input" name="first_section_bigthumnail" type="checkbox" id="inlineCheckbox1" value="3">
+                                <label class="form-check-label" for="inlineCheckbox1">First Section Big Thumbnail</label>
+                            </div>
+                            <div class="form-check form-check-inline ">
+                                <input class="form-check-input" name="first_section" type="checkbox" id="inlineCheckbox1" value="4">
+                                <label class="form-check-label" for="inlineCheckbox1">First Section</label>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
-                            <div class="col-sm-12 col-md-7">
+                            <div class="col-sm-12 col-md-7 text-center mt-5">
                                 <button type="submit" class="btn btn-primary">Create Post</button>
                             </div>
                         </div>
