@@ -24,9 +24,22 @@ class PostController extends Controller
         $subdistricts=SubDistrict::all();
         return view('backend.pages.post.create_post',compact('categories', 'subcategories', 'districts', 'subdistricts'));
     }
-    public function store(Request $request)
+    public function post_store(Request $request)
     {
+        $request->validate([
+            'cat_id'=>'required',
+            'dist_id'=>'required'
+        ]);
+        //dd($request);
+        $filename ='';
+        if ($request->hasFile('image')) {
+
+            $file = $request->file('image');
+            $filename = date('Ymdhms') . '.' . $file->getclientOriginalExtension();
+            $file->storeAs('public/postImages', $filename);
+        }
         Post::create([
+
             'title_en'=>$request->title_en,
             'title_bn'=>$request->title_bn,
             'cat_id'=>$request->cat_id,
@@ -38,11 +51,12 @@ class PostController extends Controller
             'tags_bn'=>$request->tags_bn,
             'tags_en'=>$request->tags_en,
             'headline'=>$request->headline,
+            'image'=>$filename,
             'first_section'=>$request->first_section,
             'first_section_thumbnail'=>$request->first_section_thumbnail,
             'bigthumbnail'=>$request->bigthumbnail,
-            'post_date'=>$request->post_date,
-            'post_month'=>$request->post_month,
+            'post_date'=>date('d-m-Y'),
+            'post_month'=>date('F'),
 
         ]);
         return redirect()->back();

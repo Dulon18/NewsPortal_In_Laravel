@@ -69,6 +69,6 @@ Route::get('/subdistrict/delete/{id}',[SubDistrictController::class,'delete_subd
 
 Route::get('/post/list', [PostController::class, 'post_list'])->name('post.list');
 Route::get('/post/create', [PostController::class, 'post_create'])->name('post.create');
-Route::get('/post/store', [PostController::class, 'post_store'])->name('post.store');
+Route::post('/post/store', [PostController::class, 'post_store'])->name('post.store');
 
 //post route end
