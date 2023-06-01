@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
@@ -9,13 +10,26 @@ use App\Models\District;
 use App\Models\SubCategory;
 use App\Models\SubDistrict;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Datatables;
 
 class PostController extends Controller
 {
     public function post_list()
     {
+        if(request()->ajax())
+        {
+            return datatables()->of(DB::table('posts')->select('*'))
+                ->addColumn('action',function ($row) {
+                        $buttons = '<a href="' . route("post.edit", $row->id) . '" class="btn btn-sm btn-warning mx-3" >Edit</a>';
+                        $buttons .= '<a href="' . route("post.delete", $row->id) . '" class="btn btn-sm btn-danger" >Delete</a>';
+                        return $buttons;
+                    })
+                    ->make('true');
+        }
         return view('backend.pages.post.post_list');
     }
+
     public function post_create()
     {
         $categories=Category::all();
@@ -61,4 +75,5 @@ class PostController extends Controller
         ]);
         return redirect()->back();
     }
+    
 }

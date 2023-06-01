@@ -1,68 +1,82 @@
-@extends('backend.layouts.app')
+@extends('backend.layouts.main')
+@section('links')
+    <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
+    <style>
+        .table {
+            color: rgb(25, 22, 22) !important;
+        }
+
+        table#datatable-ajax-crud {
+            width: 100% !important;
+
+        }
+    </style>
+@endsection
 @section('content')
-    <div class="col-xl-12 col-lg-12 tm-md-12 tm-sm-12 tm-col">
-        @if (session()->has('success'))
-            <p class="alert alert-success">{{ session()->get('success') }}</p>
-        @endif
-        <div class="bg-white tm-block h-100">
-            <div class="row">
-                <div class="col-md-8 col-sm-12">
-                    <h2 class="tm-block-title d-inline-block">Post</h2>
-                </div>
-                <div class="col-md-4 col-sm-12 text-right">
-                    <a href="{{ route('post.create') }}" class="btn btn-small btn-primary">Add New Post</a>
-                </div>
-            </div>
+<div class="col-12 col-md-6 col-lg-12">
+    <div class="section-header">
+        <h1>Post List</h1>
+    </div>
+    @if (session()->has('success'))
+        <p class="alert alert-success">{{ session()->get('success') }}</p>
+    @endif
+    <div class="card">
+        <div class="card-header">
+            <a href="{{ route('post.create') }}" class="btn btn-small btn-primary">Add New Post</a>
+        </div>
+        <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-hover table-striped tm-table-striped-even mt-3">
-                    <thead>
-                        <tr class="tm-bg-gray">
-                            <th scope="col">&nbsp;</th>
-                            <th scope="col">Category English Name</th>
-                            <th scope="col">Category Bangla Name</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
+                <table class="table table-bordered table-md v_center" id="datatable-ajax-crud">
                     <tbody>
-                        {{-- @foreach ($categories as $category)
-                            <th scope="row">
-                                <input type="checkbox" aria-label="Checkbox">
-                            </th>
-                            <td class="tm-product-name">{{ $category->category_en }}</td>
-                            <td class="tm-product-name">{{ $category->category_bn }}</td>
-                            <td>
-                                <a href="{{ route('category.edit', $category->id) }}"><i
-                                        class="fas fa-edit tm-trash-icon"></i></a>
-                                <a href="{{ route('category.delete', $category->id) }}"><i
-                                        class="fas fa-trash-alt tm-trash-icon mx-4"></i></a>
-                            </td>
-                            </tr>
-                        @endforeach --}}
-                        <tr>
+                        <th>Title English Name</th>
+                        <th>Title Bangla Name</th>
+                        <th>Category</th>
+                        <th>Action</th>
                     </tbody>
                 </table>
             </div>
-
-            <div class="tm-table-mt tm-table-actions-row">
-                <div class="tm-table-actions-col-left">
-                    <button class="btn btn-danger">Delete Selected Items</button>
-                </div>
-                <div class="tm-table-actions-col-right">
-                    <span class="tm-pagination-label">Page</span>
-                    <nav aria-label="Page navigation" class="d-inline-block">
-                        <ul class="pagination tm-pagination">
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <span class="tm-dots d-block">...</span>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">13</a></li>
-                            <li class="page-item"><a class="page-link" href="#">14</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
         </div>
     </div>
+</div>
+@endsection
+
+@section('scripts')
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $('#datatable-ajax-crud').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: "{{ route('post.list') }}",
+            columns: [{
+                    data: 'id',
+                    name: 'id',
+                    'visible': false
+                },
+                {
+                    data: 'title_en'
+                },
+                {
+                    data: 'title_bn'
+                },
+                {
+                    data: 'cat_id'
+                },
+                {
+                    data: 'action',
+                    orderable: false,
+                    searchable: false
+                },
+            ],
+            order: [
+                [0, 'desc']
+            ]
+        });
+    });
+</script>
 @endsection

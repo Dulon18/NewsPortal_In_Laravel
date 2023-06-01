@@ -70,6 +70,7 @@
     <!-- Template JS File -->
     <script src="{{ url('js/scripts.js') }}"></script>
     <script src="{{ url('js/custom.js') }}"></script>
+    @yield('scripts')
 </body>
 
 <!-- index-0.html  Tue, 07 Jan 2020 03:35:42 GMT -->
