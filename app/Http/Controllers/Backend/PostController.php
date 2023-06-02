@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Backend;
 
-
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
@@ -75,5 +74,12 @@ class PostController extends Controller
         ]);
         return redirect()->back();
     }
-    
+
+
+    public function post_delete($id)
+    {
+        Post::find($id)->delete();
+        return redirect()->back()->with('success','Delete successfully..');
+    }
+
 }
