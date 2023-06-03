@@ -71,6 +71,7 @@ Route::get('/post/list', [PostController::class, 'post_list'])->name('post.list'
 Route::get('/post/create', [PostController::class, 'post_create'])->name('post.create');
 Route::post('/post/store', [PostController::class, 'post_store'])->name('post.store');
 Route::get('/post/edit/{id}', [PostController::class, 'post_edit'])->name('post.edit');
+Route::put('/post/update/{id}', [PostController::class, 'post_update'])->name('post.update');
 Route::get('/post/delete/{id}', [PostController::class, 'post_delete'])->name('post.delete');
 
 //post route end

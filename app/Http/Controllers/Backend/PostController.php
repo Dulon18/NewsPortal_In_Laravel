@@ -74,8 +74,16 @@ class PostController extends Controller
         ]);
         return redirect()->back();
     }
+    public function post_edit($id)
+    {
+        $post=Post::find($id);
+        $categories = Category::all();
+        $subcategories = SubCategory::all();
+        $districts = District::all();
+        $subdistricts = SubDistrict::all();
+        return view('backend.pages.post.edit_post',compact('post', 'categories', 'subcategories', 'districts', 'subdistricts'));
 
-
+    }
     public function post_delete($id)
     {
         Post::find($id)->delete();
