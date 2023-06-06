@@ -84,6 +84,36 @@ class PostController extends Controller
         return view('backend.pages.post.edit_post',compact('post', 'categories', 'subcategories', 'districts', 'subdistricts'));
 
     }
+
+    public function post_update(Request $request,$id)
+    {
+        $post=Post::find($id);
+        $post_image = $post->image;
+
+        if ($request->hasFile('image')) {
+
+            $post_image = date('Ymdhms') . '.' . $request->file('image')->getClientOriginalExtension();
+            $request->file('image')->storeAs('public/postImages', $post_image);
+        }
+        $post->update([
+            'title_en' => $request->title_en,
+            'title_bn' => $request->title_bn,
+            'cat_id' => $request->cat_id,
+            'subcat_id' => $request->subcat_id,
+            'dist_id' => $request->dist_id,
+            'subdist_id' => $request->subdist_id,
+            'details_en' => $request->details_en,
+            'details_bn' => $request->details_bn,
+            'tags_bn' => $request->tags_bn,
+            'tags_en' => $request->tags_en,
+            'headline' => $request->headline,
+            'image' => $post_image,
+            'first_section' => $request->first_section,
+            'first_section_thumbnail' => $request->first_section_thumbnail,
+            'bigthumbnail' => $request->bigthumbnail,
+        ]);
+        return redirect()->back()->with('success', 'Update successfully..');
+    }
     public function post_delete($id)
     {
         Post::find($id)->delete();
