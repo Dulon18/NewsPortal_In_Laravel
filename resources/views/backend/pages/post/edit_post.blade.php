@@ -38,6 +38,8 @@
                             <label class="col-form-label text-md-right col-12 col-md-4 col-lg-3">Image</label>
                             <div class="col-sm-12 col-md-7">
                                 <input type="file" name="image" class="form-control" id="customFile">
+                                <img style="border-radius: 4px;" width="200px;"
+                                    src=" {{ url('public/postImages/' . $post->image) }}" alt="Plz ..upload">
                             </div>
                         </div>
                         <div class="form-group row mb-4">
@@ -45,8 +47,11 @@
                             <div class="col-sm-12 col-md-7">
                                 <select name="cat_id" class="form-control selectric">
                                     <option disabled selected>Select One</option>
-                                    @foreach ($categories as $c)
-                                        <option value="{{ $c->id }}">{{ $c->category_en }} | {{ $c->category_bn }}
+                                    @foreach ($categories as $row)
+                                        <option value="{{ $row->id }}" <?php if ($row->id == $post->cat_id) {
+                                            echo 'selected';
+                                        } ?>>{{ $row->category_en }} |
+                                            {{ $row->category_bn }}
                                         </option>
                                     @endforeach
                                 </select>
@@ -58,7 +63,10 @@
                                 <select name="subcat_id" class="form-control selectric">
                                     <option disabled selected>Select One</option>
                                     @foreach ($subcategories as $row)
-                                        <option value="{{ $row->id }}">{{ $row->subcategory_en }} |
+                                        <option value="{{ $row->id }}" <?php if ($row->id == $post->subcat_id) {
+                                            echo 'selected';
+                                        } ?>>{{ $row->subcategory_en }}
+                                            |
                                             {{ $row->subcategory_bn }}
                                         </option>
                                     @endforeach
@@ -71,7 +79,9 @@
                                 <select name="dist_id" class="form-control selectric">
                                     <option disabled selected>Select One</option>
                                     @foreach ($districts as $row)
-                                        <option value="{{ $row->id }}">{{ $row->district_en }} |
+                                        <option value="{{ $row->id }}"<?php if ($row->id == $post->dist_id) {
+                                            echo 'selected';
+                                        } ?>>{{ $row->district_en }} |
                                             {{ $row->district_bn }}
                                         </option>
                                     @endforeach
@@ -84,7 +94,10 @@
                                 <select name="subdist_id" class="form-control selectric">
                                     <option disabled selected>Select One</option>
                                     @foreach ($subdistricts as $row)
-                                        <option value="{{ $row->id }}">{{ $row->subdistrict_en }} |
+                                        <option value="{{ $row->id }}"<?php if ($row->id == $post->subdist_id) {
+                                            echo 'selected';
+                                        } ?>>{{ $row->subdistrict_en }}
+                                            |
                                             {{ $row->subdistrict_bn }}
                                         </option>
                                     @endforeach
@@ -94,35 +107,43 @@
                         <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">English Details</label>
                             <div class="col-sm-12 col-md-7">
-                                <textarea name="details_en" class="summernote">{{$post->details_en}}</textarea>
+                                <textarea name="details_en" class="summernote">{{ $post->details_en }}</textarea>
                             </div>
                         </div>
                         <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Bangla Details</label>
                             <div class="col-sm-12 col-md-7">
-                                <textarea name="details_bn" class="summernote">{{$post->details_bn}}</textarea>
+                                <textarea name="details_bn" class="summernote">{{ $post->details_bn }}</textarea>
                             </div>
                         </div>
                         <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Extra option</label>
                             <div class="form-check form-check-inline ">
                                 <input class="form-check-input" name="headline" type="checkbox" id="inlineCheckbox1"
-                                    value="{{ $post->headline }}">
+                                    value="1" <?php if ($post->headline == 1) {
+                                        echo 'checked';
+                                    } ?>>
                                 <label class="form-check-label" for="inlineCheckbox1">Headline</label>
                             </div>
                             <div class="form-check form-check-inline ">
                                 <input class="form-check-input" name="bigthumnail" type="checkbox" id="inlineCheckbox1"
-                                    value="{{ $post->bigthumnail }}">
+                                    value="1" <?php if ($post->bigthumnail == 1) {
+                                        echo 'checked';
+                                    } ?>>
                                 <label class="form-check-label" for="inlineCheckbox1">General Big Thumbnail</label>
                             </div>
                             <div class="form-check form-check-inline ">
                                 <input class="form-check-input" name="first_section_bigthumnail" type="checkbox"
-                                    id="inlineCheckbox1" value="{{ $post->first_section_bigthumnail }}">
+                                    id="inlineCheckbox1" value="1" <?php if ($post->first_section_bigthumnail == 1) {
+                                        echo 'checked';
+                                    } ?>>
                                 <label class="form-check-label" for="inlineCheckbox1">First Section Big Thumbnail</label>
                             </div>
                             <div class="form-check form-check-inline ">
                                 <input class="form-check-input" name="first_section" type="checkbox"
-                                    id="inlineCheckbox1" value="{{ $post->first_section }}">
+                                    id="inlineCheckbox1" value="1" <?php if ($post->first_section == 1) {
+                                        echo 'checked';
+                                    } ?>>
                                 <label class="form-check-label" for="inlineCheckbox1">First Section</label>
                             </div>
                         </div>

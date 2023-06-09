@@ -31,6 +31,7 @@
                         <th>Title English Name</th>
                         <th>Title Bangla Name</th>
                         <th>Category</th>
+                        <th>Thum</th>
                         <th>Action</th>
                     </tbody>
                 </table>

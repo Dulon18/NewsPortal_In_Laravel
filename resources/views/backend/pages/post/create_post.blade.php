@@ -111,17 +111,17 @@
                             </div>
                             <div class="form-check form-check-inline ">
                                 <input class="form-check-input" name="bigthumnail" type="checkbox" id="inlineCheckbox1"
-                                    value="2">
+                                    value="1">
                                 <label class="form-check-label" for="inlineCheckbox1">General Big Thumbnail</label>
                             </div>
                             <div class="form-check form-check-inline ">
                                 <input class="form-check-input" name="first_section_bigthumnail" type="checkbox"
-                                    id="inlineCheckbox1" value="3">
+                                    id="inlineCheckbox1" value="1">
                                 <label class="form-check-label" for="inlineCheckbox1">First Section Big Thumbnail</label>
                             </div>
                             <div class="form-check form-check-inline ">
                                 <input class="form-check-input" name="first_section" type="checkbox"
-                                    id="inlineCheckbox1" value="4">
+                                    id="inlineCheckbox1" value="1">
                                 <label class="form-check-label" for="inlineCheckbox1">First Section</label>
                             </div>
                         </div>

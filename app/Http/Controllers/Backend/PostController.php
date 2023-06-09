@@ -49,7 +49,7 @@ class PostController extends Controller
 
             $file = $request->file('image');
             $filename = date('Ymdhms') . '.' . $file->getclientOriginalExtension();
-            $file->storeAs('public/postImages', $filename);
+            $file->storeAs('/public/postImages', $filename);
         }
         Post::create([
 
@@ -93,7 +93,7 @@ class PostController extends Controller
         if ($request->hasFile('image')) {
 
             $post_image = date('Ymdhms') . '.' . $request->file('image')->getClientOriginalExtension();
-            $request->file('image')->storeAs('public/postImages', $post_image);
+            $request->file('image')->storeAs('/public/postImages', $post_image);
         }
         $post->update([
             'title_en' => $request->title_en,
