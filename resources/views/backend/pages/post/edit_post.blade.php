@@ -7,7 +7,8 @@
                     <h4>Edit Post</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('post.update', $post->id) }}" method="POST" class="tm-edit-product-form">
+                    <form action="{{ route('post.update', $post->id) }}" method="POST" class="tm-edit-product-form"
+                        enctype="multipart/form-data">
                         @method('put')
                         @csrf
                         <div class="form-group row mb-4">
@@ -38,8 +39,8 @@
                             <label class="col-form-label text-md-right col-12 col-md-4 col-lg-3">Image</label>
                             <div class="col-sm-12 col-md-7">
                                 <input type="file" name="image" class="form-control" id="customFile">
-                                <img style="border-radius: 4px;" width="200px;"
-                                    src=" {{ url('public/postImages/' . $post->image) }}" alt="Plz ..upload">
+                                <img style="border-radius: 4px;" width="100px;"
+                                    src="{{url('public/postImages/'.$post->image)}}" alt="Not Found..">
                             </div>
                         </div>
                         <div class="form-group row mb-4">
@@ -127,21 +128,21 @@
                             </div>
                             <div class="form-check form-check-inline ">
                                 <input class="form-check-input" name="bigthumnail" type="checkbox" id="inlineCheckbox1"
-                                    value="1" <?php if ($post->bigthumnail == 1) {
+                                    value="2" <?php if ($post->bigthumnail == 2) {
                                         echo 'checked';
                                     } ?>>
                                 <label class="form-check-label" for="inlineCheckbox1">General Big Thumbnail</label>
                             </div>
                             <div class="form-check form-check-inline ">
                                 <input class="form-check-input" name="first_section_bigthumnail" type="checkbox"
-                                    id="inlineCheckbox1" value="1" <?php if ($post->first_section_bigthumnail == 1) {
+                                    id="inlineCheckbox1" value="3" <?php if ($post->first_section_bigthumnail == 3) {
                                         echo 'checked';
                                     } ?>>
                                 <label class="form-check-label" for="inlineCheckbox1">First Section Big Thumbnail</label>
                             </div>
                             <div class="form-check form-check-inline ">
                                 <input class="form-check-input" name="first_section" type="checkbox"
-                                    id="inlineCheckbox1" value="1" <?php if ($post->first_section == 1) {
+                                    id="inlineCheckbox1" value="4" <?php if ($post->first_section == 4) {
                                         echo 'checked';
                                     } ?>>
                                 <label class="form-check-label" for="inlineCheckbox1">First Section</label>

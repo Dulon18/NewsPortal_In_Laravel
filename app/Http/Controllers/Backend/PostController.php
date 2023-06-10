@@ -49,7 +49,7 @@ class PostController extends Controller
 
             $file = $request->file('image');
             $filename = date('Ymdhms') . '.' . $file->getclientOriginalExtension();
-            $file->storeAs('/public/postImages', $filename);
+            $file->storeAs('public/postImages', $filename);
         }
         Post::create([
 
@@ -72,7 +72,7 @@ class PostController extends Controller
             'post_month'=>date('F'),
 
         ]);
-        return redirect()->back();
+        return redirect()->route('post.list')->with('success', 'Post create successfully..');
     }
     public function post_edit($id)
     {
@@ -87,13 +87,14 @@ class PostController extends Controller
 
     public function post_update(Request $request,$id)
     {
+        //dd($request);
         $post=Post::find($id);
         $post_image = $post->image;
 
         if ($request->hasFile('image')) {
 
             $post_image = date('Ymdhms') . '.' . $request->file('image')->getClientOriginalExtension();
-            $request->file('image')->storeAs('/public/postImages', $post_image);
+            $request->file('image')->storeAs('public/postImages', $post_image);
         }
         $post->update([
             'title_en' => $request->title_en,
@@ -112,7 +113,7 @@ class PostController extends Controller
             'first_section_thumbnail' => $request->first_section_thumbnail,
             'bigthumbnail' => $request->bigthumbnail,
         ]);
-        return redirect()->back()->with('success', 'Update successfully..');
+        return redirect()->route('post.list')->with('success', 'Update successfully..');
     }
     public function post_delete($id)
     {

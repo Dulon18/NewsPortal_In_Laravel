@@ -7,7 +7,8 @@
                     <h4>Add Post</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('post.store') }}" method="POST" class="tm-edit-product-form">
+                    <form action="{{ route('post.store') }}" method="POST" class="tm-edit-product-form"
+                        enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title English Name</label>
@@ -111,17 +112,17 @@
                             </div>
                             <div class="form-check form-check-inline ">
                                 <input class="form-check-input" name="bigthumnail" type="checkbox" id="inlineCheckbox1"
-                                    value="1">
+                                    value="2">
                                 <label class="form-check-label" for="inlineCheckbox1">General Big Thumbnail</label>
                             </div>
                             <div class="form-check form-check-inline ">
                                 <input class="form-check-input" name="first_section_bigthumnail" type="checkbox"
-                                    id="inlineCheckbox1" value="1">
+                                    id="inlineCheckbox1" value="3">
                                 <label class="form-check-label" for="inlineCheckbox1">First Section Big Thumbnail</label>
                             </div>
                             <div class="form-check form-check-inline ">
                                 <input class="form-check-input" name="first_section" type="checkbox"
-                                    id="inlineCheckbox1" value="1">
+                                    id="inlineCheckbox1" value="4">
                                 <label class="form-check-label" for="inlineCheckbox1">First Section</label>
                             </div>
                         </div>
