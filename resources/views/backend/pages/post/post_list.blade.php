@@ -7,13 +7,13 @@
         }
 
         table#datatable-ajax-crud {
-            width: 100% !important;
+            width: 98% !important;
 
         }
 
         table#datatable-ajax-crud th {
             color: rgb(252, 252, 245);
-            background: #a02020;
+            background: #5c3d70;
         }
     </style>
 @endsection
@@ -25,19 +25,23 @@
         @if (session()->has('success'))
             <p class="alert alert-success">{{ session()->get('success') }}</p>
         @endif
-        <div class="card">
+        <div class="card p-3">
             <div class="card-header">
                 <a href="{{ route('post.create') }}" class="btn btn-small btn-primary">Add New Post</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="datatable-ajax-crud">
+                    <table class="table table-bordered align-middle" id="datatable-ajax-crud">
                         <tbody>
-                            <th>Title English Name</th>
-                            <th>Title Bangla Name</th>
-                            <th>Category</th>
-                            <th>Thumnail</th>
-                            <th>Action</th>
+                            <tr>
+                                <thead>
+                                    <th>Title English Name</th>
+                                    <th>Title Bangla Name</th>
+                                    <th>Category</th>
+                                    <th>Thumnail</th>
+                                    <th>Action</th>
+                                </thead>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -59,11 +63,7 @@
                 processing: true,
                 serverSide: true,
                 ajax: "{{ route('post.list') }}",
-                columns: [{
-                        data: 'id',
-                        name: 'id',
-                        'visible': false
-                    },
+                columns: [
                     {
                         data: 'title_en'
                     },
@@ -74,9 +74,12 @@
                         data: 'cat_id'
                     },
                     {
+                        data: 'image'
+                    },
+                    {
                         data: 'action',
                         orderable: false,
-                        searchable: false
+                        searchable: true
                     },
                 ],
                 order: [
