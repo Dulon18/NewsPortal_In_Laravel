@@ -46,12 +46,14 @@ Route::get('/subcategory/delete/{id}',[SubCategoryController::class,'delete_subc
 //Subcategory route end here-------------------------------------------------------------------------------------->
 
 //Districts route start here---------------------------------------------------------------------------------->
+
 Route::get('/district/list',[DistrictController::class,'district_list'])->name('district.list');
 Route::get('/district/create',[DistrictController::class,'create_district'])->name('district.create');
 Route::post('/district/store',[DistrictController::class,'store_district'])->name('district.store');
 Route::get('/district/edit/{id}',[DistrictController::class,'edit_district'])->name('district.edit');
 Route::put('/district/update/{id}',[DistrictController::class,'update_district'])->name('district.update');
 Route::get('/district/delete/{id}',[DistrictController::class,'delete_district'])->name('district.delete');
+
 //Districts route end here-------------------------------------------------------------------------------------->
 
 // SubDistricts route start here---------------------------------------------------------------------------------->
